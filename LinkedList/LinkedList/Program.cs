@@ -19,7 +19,8 @@ namespace LinkedList
             node.Deletefirst();
             node.Deletelast();
             Console.WriteLine("after deleted new lsit:");
-            node.Display();            
+            node.Display();
+            node.Search(30);
         }
     }
 }

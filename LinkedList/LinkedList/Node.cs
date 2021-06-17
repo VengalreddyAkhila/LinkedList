@@ -111,6 +111,38 @@ namespace LinkedList
             p.next = null;
 
         }
+        /// <summary>
+        /// checking the list is empty or not with boolean value
+        /// </summary>
+        /// <returns></returns>
+        public bool isEmpty()
+        {
+            if (head == null)
+                return true;
+            else
+                return false;
+        }
+        /// <summary>
+        /// searching the node in the list
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public  Node  Search(int data)
+        {
+            Node temp = head;
+            while (temp != null)
+            {
+                if (temp.data == data)
+                {
+                    Console.WriteLine("data is in  list:" +data);
+                    return temp;
+                }
+                temp = temp.next;
+            }
+            Console.WriteLine("data is not  in list:" +data);
+            return null;
+        }
+
     }
 }
     
