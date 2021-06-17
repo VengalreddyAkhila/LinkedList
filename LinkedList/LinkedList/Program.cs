@@ -16,6 +16,9 @@ namespace LinkedList
             node.Insertatparticular(10, 1);
             Console.WriteLine("after Inserted new list");
             node.Display();
+            node.Deletefirst();
+            Console.WriteLine("after deleted new lsit:");
+            node.Display();
             
         }
     }

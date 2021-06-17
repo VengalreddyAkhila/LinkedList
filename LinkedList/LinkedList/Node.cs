@@ -69,6 +69,9 @@ namespace LinkedList
             temp.next = p.next;
             p.next = temp;
         }
+        /// <summary>
+        /// prints the list
+        /// </summary>
         public void Display()
         {
             Node p = head;
@@ -79,8 +82,19 @@ namespace LinkedList
             }
 
         }
+        /// <summary>
+        /// deletes the first node in list
+        /// </summary>
+        public void Deletefirst()
+        {
+            if (head == null)
+                return;
+            head = head.next;
+        }
     }
 }
+    
+
         
 
     
