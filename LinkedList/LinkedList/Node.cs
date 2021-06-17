@@ -7,7 +7,7 @@ namespace LinkedList
     /// <summary>
     /// creating the list 
     /// </summary>
-   
+
     public class Node
     {
         public int data;
@@ -15,7 +15,7 @@ namespace LinkedList
         private Node head;
         public Node(int i)
         {
-            
+
             data = i;
             next = null;
             head = null;
@@ -26,11 +26,22 @@ namespace LinkedList
         /// <param name="data"></param>
         public void Add(int data)
         {
-            if (next == null)
-                next = new Node(data);
+            Node node = new Node(data);
+            if (head == null)
+            {
+                head = node;
+            }
             else
-                next.Add(data);
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
         }
+
         /// <summary>
         /// inserts the data at starting position in list
         /// </summary>
@@ -39,63 +50,41 @@ namespace LinkedList
             Node temp = new Node(data);
             temp.next = head;
             head = temp;
-        }   
+        }
         /// <summary>
         /// inserts the data at particulat position
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="k"></param>        
-        public void Insertatparticular(int data, int k)
-        {          
-               Node  temp;
-            if (k == 1)
-            {
-                temp = new Node(data);
-                temp.next = head;
-                head = temp;
-                return;
-            }
-                        
-               Node p = head;
-            for (int i = 1; i < k - 1 && p != null; i++)
+        /// <param name="position"></param>        
+        public void Insertatparticular(int data, int position)
+        {
+            Node temp = new Node(data);
+            temp.next = null;
+            Node p = head;
+            for (int i = 1; i < position - 1; i++)
             {
                 p = p.next;
-                if (p == null)
-                    Console.WriteLine("" + i + "");
-                else
-                {
-                    temp = new Node(data);
-                    temp.next = p.next;
-                    p.next = temp;
-                }
-            }
 
-        }           
-        
-        //prints the list after insertion
-        public void Show()
-        {
-            Node node = head;
-            while (node.next != null)
-            {
-                Console.WriteLine(node.data);
-                node = node.next;
             }
-            Console.WriteLine(node.data);
+            temp.next = p.next;
+            p.next = temp;
         }
-       
-        //printing the list
-        public void Print()
+        public void Display()
         {
-            Console.WriteLine("" + data + "");
-            if (next != null)
+            Node p = head;
+            while (p != null)
             {
-                next.Print();
+                Console.WriteLine(p.data);
+                p = p.next;
             }
 
         }
     }
+}
+        
+
+    
     
 
-}
+
  
