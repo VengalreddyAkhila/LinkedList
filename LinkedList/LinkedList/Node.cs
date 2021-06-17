@@ -80,7 +80,6 @@ namespace LinkedList
                 Console.WriteLine(p.data);
                 p = p.next;
             }
-
         }
         /// <summary>
         /// deletes the first node in list
@@ -90,6 +89,27 @@ namespace LinkedList
             if (head == null)
                 return;
             head = head.next;
+        }
+        /// <summary>
+        /// deletes the last node in list
+        /// </summary>
+        public void Deletelast()
+        {
+            if (head == null)
+                Console.WriteLine("the list is empty");
+
+            if (head.next == null)
+            {
+                head = null;
+                return;
+            }
+            Node p = head;
+            while (p.next.next != null)
+            {
+                p = p.next;
+            }
+            p.next = null;
+
         }
     }
 }
